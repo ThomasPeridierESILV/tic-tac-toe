@@ -2,15 +2,18 @@
 
 var React = require('react');
 
-
 var Box = React.createClass({
   /**
    * Render a HTML button
    * @return {ReactElement}
    */
+   getInitialState: function() {
+    return {value: this.props.initialValue};
+  },
+
   'render': function onRender () {
     return (
-      <button style={BoxStyle} >{this.props.value}</button>
+      <button style={BoxStyle} >{this.state.value}</button>
     );
   }
 });
@@ -21,4 +24,4 @@ var BoxStyle = {
 };
 
 
-React.render(<Box value="X"/>, document.body);
+React.render(<Box initialValue="X"/>, document.body);
