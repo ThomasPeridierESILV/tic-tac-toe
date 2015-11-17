@@ -27,9 +27,23 @@ var Box = React.createClass({
 
   'render': function onRender () {
     return (
-      <button style={BoxStyle} onClick={this.handleClick} >{this.state.value}</button>
+      	<button style={BoxStyle} onClick={this.handleClick} >{this.state.value}</button>
     );
   }
+});
+
+var Row = React.createClass({
+
+	'render': function onRender () {
+    return (
+       <ul>
+      	<Box initialValue="-"/>
+      	<Box initialValue="-"/>
+      	<Box initialValue="-"/>
+      </ul>
+    );
+    }
+
 });
 
 var BoxStyle = {
@@ -37,5 +51,5 @@ var BoxStyle = {
   width: '100px'
 };
 
-
-React.render(<Box initialValue="X"/>, document.body);
+React.render(<Row />, document.body)
+//React.render(<Box initialValue="X"/>, document.body);
