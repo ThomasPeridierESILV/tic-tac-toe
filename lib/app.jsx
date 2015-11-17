@@ -34,14 +34,19 @@ var Box = React.createClass({
 
 var Row = React.createClass({
 
+	getInitialState: function() {
+	    return {value: this.props.initialValue};
+	  },
+
 	'render': function onRender () {
-    return (
-       <ul>
-      	<Box initialValue="-"/>
-      	<Box initialValue="-"/>
-      	<Box initialValue="-"/>
-      </ul>
-    );
+		var result = this.props.initialValue;
+    	return (
+	    	<div>
+		        {initialValue.map(function(result) {
+		          return <Box initialValue={result.text}/>;
+		        })}
+	        </div>
+    	);
     }
 
 });
@@ -50,6 +55,7 @@ var BoxStyle = {
   height: '100px',
   width: '100px'
 };
+	
 
-React.render(<Row />, document.body)
+React.render(<Row initialValue={"-","-","-"} />, document.body)
 //React.render(<Box initialValue="X"/>, document.body);
